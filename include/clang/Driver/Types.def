@@ -89,7 +89,11 @@ TYPE("java",                     Java,         INVALID,         nullptr, "u")
 TYPE("ir",                       LLVM_IR,      INVALID,         "ll",    "u")
 TYPE("ir",                       LLVM_BC,      INVALID,         "bc",    "u")
 TYPE("lto-ir",                   LTO_IR,       INVALID,         "s",     "")
+#ifdef Linux
 TYPE("lto-bc",                   LTO_BC,       INVALID,         "o",     "")
+#elif _WIN32
+TYPE("lto-bc",                   LTO_BC,       INVALID,         "obj",     "")
+#endif
 
 // Misc.
 TYPE("ast",                      AST,          INVALID,         "ast",   "u")
@@ -99,7 +103,11 @@ TYPE("rewritten-objc",           RewrittenObjC,INVALID,         "cpp",   "")
 TYPE("rewritten-legacy-objc",    RewrittenLegacyObjC,INVALID,   "cpp",   "")
 TYPE("remap",                    Remap,        INVALID,         "remap", "")
 TYPE("precompiled-header",       PCH,          INVALID,         "gch",   "A")
+#ifdef Linux
 TYPE("object",                   Object,       INVALID,         "o",     "")
+#elif _WIN32
+TYPE("object",                   Object,       INVALID,         "obj",     "")
+#endif
 TYPE("treelang",                 Treelang,     INVALID,         nullptr, "u")
 TYPE("image",                    Image,        INVALID,         "out",   "")
 TYPE("dSYM",                     dSYM,         INVALID,         "dSYM",  "A")
