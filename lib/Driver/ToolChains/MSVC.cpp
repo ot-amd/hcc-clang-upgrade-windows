@@ -8,6 +8,7 @@
 //===----------------------------------------------------------------------===//
 
 #include "MSVC.h"
+#include "Gnu.h"
 #include "CommonArgs.h"
 #include "Darwin.h"
 #include "clang/Basic/CharInfo.h"
